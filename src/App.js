@@ -1,35 +1,24 @@
-import Directory from './components/directory/Directory'
+import {Routes, Route} from 'react-router-dom';
+import Home from './components/routes/home/HomeComponent';
+import Navigation from './components/routes/navigation/NavigationComponent';
+import Signin from './components/routes/sign-in/SigninComponent';
+import SignUpForm from './components/sign-up-form/SignUpFormComponent';
 
+
+const Shop = () => {
+  return <h1>I am the shop page</h1>
+}
 const App = () => {
-  const categories = [
-    {
-      id: 1,
-      title: 'Hats',
-      imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-    },
-    {
-      id: 2,
-      title: 'Jackets',
-      imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-    },
-    {
-      id: 3,
-      title: 'Sneakers',
-      imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-    },
-    {
-      id: 4,
-      title: 'Women',
-      imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-    },
-    {
-      id: 5,
-      title: 'Men',
-      imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-    },
-  ];
-
-  return <Directory categories={categories} />;
+  return (
+    <Routes>
+      <Route path='/' element={<Navigation />}>
+        <Route index element={<Home />} />
+        <Route path='shop' element={<Shop />} />      
+        <Route path='Sign-in' element={<Signin />} />    
+        <Route path='Signup' element={<SignUpForm />} />  
+      </Route>
+    </Routes>
+  );
 };
 
 export default App;
